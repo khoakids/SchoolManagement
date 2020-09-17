@@ -1,0 +1,41 @@
+﻿@model List<ViewMajor>
+
+@{
+    ViewBag.Title = "Major List";
+}
+
+<div class="text-center">
+    <h3 class="display">DANH SÁCH NHÂN VIÊN - @ViewBag.Email</h3>
+    <table id="tbStaffs" class="table table-bordered table-hover table-primary">
+        <thead class="thead-dark">
+            <tr>
+                <th>#ID</th>
+                <th>Tên khoa</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Năm thành lập</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var major in Model)
+            {
+                <tr>
+                    <td>@major.MajorId</td>
+                    <td>@major.MajorName</td>
+                    <td>@major.Email</td>
+                    <td>@major.PhoneNumber</td>
+                    <td>@major.FoundedYear</td>
+                    <td>
+                        <a asp-controller="Major" asp-action="Edit" asp-route-id="@major.MajorId" class="text-danger"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:void(0)" class="text-danger" onclick="major.delete(@major.MajorId)"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/lib/bootbox/bootbox.min.js"></script>
+    <script src="~/js/major.js" asp-append-version="true"></script>
+}

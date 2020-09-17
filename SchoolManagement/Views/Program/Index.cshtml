@@ -1,0 +1,36 @@
+﻿@model List<ViewProgram>
+
+@{
+    ViewBag.Title = "Program List";
+}
+
+<div class="text-center">
+    <h3 class="display">DANH SÁCH CHƯƠNG TRÌNH</h3>
+    <table id="tbStaffs" class="table table-bordered table-hover table-primary">
+        <thead class="thead-dark">
+            <tr>
+                <th>#ID</th>
+                <th>Tên chương trình</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var program in Model)
+            {
+                <tr>
+                    <td>@program.ProgramId</td>
+                    <td>@program.ProgramName</td>
+                    <td>
+                        <a asp-controller="Program" asp-action="Edit" asp-route-id="@program.ProgramId" class="text-danger"><i class="fas fa-edit"></i></a>
+                        <a href="javascript:void(0)" class="text-danger" onclick="program.delete(@program.ProgramId)"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@section Scripts{
+    <script src="~/lib/bootbox/bootbox.min.js"></script>
+    <script src="~/js/program.js" asp-append-version="true"></script>
+}

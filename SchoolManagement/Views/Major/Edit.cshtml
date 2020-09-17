@@ -1,0 +1,48 @@
+﻿@model UpdateMajor
+
+@{ 
+    ViewBag.Title = "Update Major";
+}
+
+<div>
+    <h1>CẬP NHẬT THÔNG TIN KHOA</h1>
+    <form asp-controller="Major" asp-action="Edit" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <fieldset>
+            <legend>Thông tin Khoa</legend>
+            <div class="row form-group">
+                <label asp-for="MajorName" class="col-2"></label>
+                <div class="col-10">
+                    <input type="hidden" asp-for="MajorId" class="form-control" autocomplete="off" />
+                    <input asp-for="MajorName" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="MajorName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label asp-for="FoundedYear" class="col-2"></label>
+                <div class="col-10">
+                    <input asp-for="FoundedYear" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="FoundedYear" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label asp-for="PhoneNumber" class="col-2"></label>
+                <div class="col-10">
+                    <input asp-for="PhoneNumber" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label asp-for="Email" class="col-2"></label>
+                <div class="col-10">
+                    <input asp-for="Email" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+            <a asp-controller="Major" asp-action="Index" class="btn btn-primary">Hủy</a>
+        </div>
+    </form>
+</div>

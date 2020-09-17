@@ -1,0 +1,27 @@
+﻿@model UpdateProgram
+
+@{ 
+    ViewBag.Title = "Update Program";
+}
+
+<div>
+    <h1>CẬP NHẬT THÔNG TIN CHƯƠNG TRÌNH</h1>
+    <form asp-controller="Program" asp-action="Edit" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <fieldset>
+            <legend>Thông tin chương trình</legend>
+            <div class="row form-group">
+                <label asp-for="ProgramName" class="col-2"></label>
+                <div class="col-10">
+                    <input type="hidden" asp-for="ProgramId" class="form-control" autocomplete="off" />
+                    <input asp-for="ProgramName" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="ProgramName" class="text-danger"></span>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+            <a asp-controller="Program" asp-action="Index" class="btn btn-primary">Hủy</a>
+        </div>
+    </form>
+</div>
