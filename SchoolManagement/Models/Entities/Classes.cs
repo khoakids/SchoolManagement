@@ -17,6 +17,6 @@ namespace SchoolManagement.Models
 
         public virtual Courses Course { get; set; }
         public virtual Majors Major { get; set; }
-        public virtual ICollection<Students> Students { get; set; }
+        public virtual ICollection<Students> Students { get; set; } 
     }
 }
